@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Mentorship Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* CSS styles */
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Virtual Mentorship Hub</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>The Virtual Mentorship Hub is a platform dedicated to connecting mentors and mentees for personal and professional growth.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h2>Features</h2>
+      <ul>
+        <li>User Profiles</li>
+        <li>Matching Algorithm</li>
+        <li>Messaging Tools</li>
+      </ul>
+      <p>Our hub aims to empower mentees to navigate career development, skill enhancement, and personal challenges with the support of experienced mentors.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message"></textarea><br><br>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="form-error" class="error"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Virtual Mentorship Hub</p>
+    </div>
+  </footer>
+
+  <script>
+    // JavaScript code for form validation
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const errorDiv = document.getElementById("form-error");
+      errorDiv.innerHTML = "";
+
+      if (name === "" || email === "" || message === "") {
+        e.preventDefault();
+        errorDiv.textContent = "Please fill out all fields.";
+        return;
+      }
+
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        e.preventDefault();
+        errorDiv.textContent = "Invalid email format.";
+        return;
+      }
+      alert("Thank you for subscribing to our newsletter!");
+    });
+  </script>
+</body>
+
+</html>
